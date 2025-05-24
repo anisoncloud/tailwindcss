@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="grid">
+      <nav class="bg-gray-800">
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="absolute -inset-0.5"></span>
+          <span class="sr-only">Open main menu</span>
+          <!--
+            Icon when menu is closed.
+
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+          <!--
+            Icon when menu is open.
+
+            Menu open: "block", Menu closed: "hidden"
+          -->
+          <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        <div class="flex shrink-0 items-center">
+          <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
+            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+          </div>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
+          <span class="absolute -inset-1.5"></span>
+          <span class="sr-only">View notifications</span>
+          <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+          </svg>
+        </button>
+
+        <!-- Profile dropdown -->
+        <div class="relative ml-3">
+          <div>
+            <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+              <span class="absolute -inset-1.5"></span>
+              <span class="sr-only">Open user menu</span>
+              <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+            </button>
+          </div>
+
+          <!--
+            Dropdown menu, show/hide based on menu state.
+
+            Entering: "transition ease-out duration-100"
+              From: "transform opacity-0 scale-95"
+              To: "transform opacity-100 scale-100"
+            Leaving: "transition ease-in duration-75"
+              From: "transform opacity-100 scale-100"
+              To: "transform opacity-0 scale-95"
+          -->
+          <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+            <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div class="sm:hidden" id="mobile-menu">
+    <div class="space-y-1 px-2 pt-2 pb-3">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+      <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+    </div>
+  </div>
+</nav>
+    </div>
+<nav class="bg-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-4">
+          <a href="#" class="text-xl font-bold text-blue-600">MyBrand</a>
+          <div class="hidden md:flex items-center space-x-4">
+            <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">About</a>
+            <!-- Dropdown Start -->
+            <div class="relative group">
+              <button class="text-gray-700 hover:text-blue-600 flex items-center">
+                Services
+                <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M5.25 7.75L10 12.5l4.75-4.75" />
+                </svg>
+              </button>
+              <div class="absolute hidden group-hover:block bg-white shadow-md mt-2 rounded-md w-40 z-50">
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Web Design</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">SEO</a>
+                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Marketing</a>
+              </div>
+            </div>
+            <!-- Dropdown End -->
+            <a href="#" class="text-gray-700 hover:text-blue-600">Contact</a>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="menu-button" class="text-gray-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600">Home</a>
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600">About</a>
+      <div>
+        <button class="w-full text-left py-2 text-gray-700 hover:text-blue-600" onclick="toggleDropdown()">Services</button>
+        <div id="dropdown-menu" class="hidden ml-4">
+          <a href="#" class="block py-1 text-gray-600 hover:text-blue-600">Web Design</a>
+          <a href="#" class="block py-1 text-gray-600 hover:text-blue-600">SEO</a>
+          <a href="#" class="block py-1 text-gray-600 hover:text-blue-600">Marketing</a>
+        </div>
+      </div>
+      <a href="#" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+    </div>
+  </nav>
+
+  <script>
+    const menuBtn = document.getElementById('menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    function toggleDropdown() {
+      dropdownMenu.classList.toggle('hidden');
+    }
+  </script>
+
+<div class="grid grid-cols-6 gap-4 text-center font-mono text-sm leading-6 font-bold text-white">
+    <div class="col-span-12 col-start-1 rounded-lg bg-sky-500 p-4 min-h-[100px]">01</div>
+    <div class="col-start-1 col-end-1 rounded-lg bg-sky-500 p-4">02</div>
+    <div class="col-span-1 col-end-6 rounded-lg bg-sky-500 p-4">03</div>
+    <div class="col-start-1 col-end-7 rounded-lg bg-sky-500 p-4 min-h-[100px]">04</div>
+    <div class="col-start-3 col-end-7 rounded-xl bg-yellow-500 p-4">05</div>
+</div>
+<div class="grid bg-[#ff0000] min-h-[500px] mt-4 flex items-center justify-center">
+    <div class="col-1 bg-sky-500 rounded-lg p-8">
+      <h1 class="text-6xl">Welcome to Bangladesh</h1>
+    </div>    
+</div>
+<div class="grid flex-column justify-center">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-100">
+  <img class="w-full m-2" src="images/1234.jpg" alt="Sunset in the mountains">
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+    <p class="text-gray-700 text-base">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+    </p>
+</div>
+</div>
+  <div class="px-6 pt-4 pb-2">
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+  </div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+  <div class="col-span-4 col-start-2">01</div>
+  <div class="col-start-1 col-end-3">02</div>
+  <div class="col-span-2 col-end-7">03</div>
+  <div class="col-span-2">04</div>
+  <div class="...">05</div>
+  <div class="...">06</div>
+  <div class="ol-start-1 col-end-7">07</div>
+</div>
+    <div><!-- ========== Start content wrapper ========== -->
+    <div>
+        <nav>
+            <div>
+                <h1>
+                    <a href="/">Food Ninja</a>
+                </h1>
+            </div>
+            <ul>
+                <li>
+                    <a href="">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div> 
+    <main>
+        <div>
+            <a href="logins">Login</a>
+            <a href="signup">Signup</a>
+        </div>
+        <header>
+            <h1 class="text-gray-800 text-4xl">Recipes</h1>
+            <h3>For Ninja</h3>
+        </header>
+        <div>
+            <h4>Latest Recipes</h4>
+            <div>
+                <div>
+                    <img src="images/1234.jpg" alt="">
+                    <div>
+                        <span>5 Bean Chilli Stew</span>
+                        <span>Recipe by Mario</span>
+                    </div>
+                </div>
+            </div>
+            <h4>Most Popular Recipes</h4>
+            <div>
+                <!---card goes here-->
+            </div>
+            <div>
+                <div>Load More</div>
+            </div>
+        </div>
+    </main>
+    </div><!-- ========== End content wrapper ========== -->
+    <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+</body>
+</html>
