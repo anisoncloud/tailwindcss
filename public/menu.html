@@ -48,7 +48,7 @@
                     -->
                     <li class="">
                         <button type="button" class="dropdown-toggle flex hover:bg-[blue] hover:text-white group relative rounded p-2" href="">Management</button>
-                        <div class="dropdown-menu absolute bg-white p-3 rounded-md hidden">
+                        <div class="dropdown-menu absolute bg-white p-3 rounded-md hidden transform opacity-100 animate-fadeIn">
                             <ul>
                                 <li><a class="flex p-2 bg-green-200 hover:bg-green-400" href="">Nav One</a></li>
                                 <li><a class="flex p-2 bg-green-200 hover:bg-green-400" href="">Nav Two</a></li>
@@ -81,6 +81,23 @@
             </div>
         </nav>
     </header>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                
+            }
+        }
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
     <script>
         const navLinks = document.querySelector('.nav-links');
         function onToggleMenu(e) {
