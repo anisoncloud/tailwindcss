@@ -36,16 +36,37 @@
                      <li>
                         <a class="hover:text-gray-500" href="">Companies</a>
                     </li>
-                     <li>
-                        <a class="hover:text-gray-500" href="">Management</a>
-                        <div>
+                     <!--
+                        Dropdown menu, show/hide based on menu state.
+
+                        Entering: "transition ease-out duration-100"
+                        From: "transform opacity-0 scale-95"
+                        To: "transform opacity-100 scale-100"
+                        Leaving: "transition ease-in duration-75"
+                        From: "transform opacity-100 scale-100"
+                        To: "transform opacity-0 scale-95"
+                    -->
+                    <li class="">
+                        <button type="button" class="dropdown-toggle flex hover:bg-[blue] hover:text-white group relative rounded p-2" href="">Management</button>
+                        <div class="dropdown-menu absolute bg-white p-3 rounded-md hidden">
                             <ul>
-                                <li><a href="">Nav One</a></li>
-                                <li><a href="">Nav Two</a></li>
-                                <li><a href="">Nav Three</a></li>
+                                <li><a class="flex p-2 bg-green-200 hover:bg-green-400" href="">Nav One</a></li>
+                                <li><a class="flex p-2 bg-green-200 hover:bg-green-400" href="">Nav Two</a></li>
+                                <li><a class="flex p-2 bg-green-200 hover:bg-green-400" href="">Nav Three</a></li>
                             </ul>
                         </div>
                     </li>
+                    <li class="">
+                        <button type="button" class="dropdown-toggle flex hover:bg-[blue] hover:text-white group relative rounded p-2" href="">Services</button>
+                        <div class="dropdown-menu absolute bg-white p-3 rounded-md hidden">
+                            <ul>
+                                <li><a class="flex p-2 bg-green-200 hover:bg-green-400" href="">Nav One</a></li>
+                                <li><a class="flex p-2 bg-green-200 hover:bg-green-400" href="">Nav Two</a></li>
+                                <li><a class="flex p-2 bg-green-200 hover:bg-green-400" href="">Nav Three</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
                      <li>
                         <a class="hover:text-gray-500" href="">CSR</a>
                     </li>
@@ -67,6 +88,27 @@
             e.name = e.name === 'menu' ? 'close' : 'menu';
             navLinks.classList.toggle('top-[60px]');
         }
+
+
+        document.addEventListener('DOMContentLoaded', ()=>{
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            //console.log(dropdownToggles);
+            dropdownToggles.forEach(toggle=>{
+                toggle.addEventListener('click', ()=>{
+                    const dropdownMenu =  toggle.nextElementSibling;
+                    if(dropdownMenu.classList.contains('hidden')){
+                        document.querySelectorAll('.dropdown-menu').forEach(menu=> {
+                            menu.classList.add('hidden');
+                        });
+                        dropdownMenu.classList.remove('hidden');                        
+                        dropdownMenu.classList.add("transition", "ease-out", "duration-1000");                        
+                    }else{
+                        dropdownMenu.classList.add('hidden');
+                    }
+
+                });
+            })
+        })
     </script>
 </body>
 </html>
